@@ -1,0 +1,124 @@
+/* ---------- BREATHE Lab — basic stylesheet ----------
+   Change the colours below to re-theme the whole site.   */
+:root {
+  --accent: #0b5d6b;        /* teal — main brand colour */
+  --accent-dark: #083f49;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --bg-soft: #f4f7f8;
+  --border: #e5e7eb;
+  --max-width: 1040px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.25rem; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-dark); }
+
+h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+h2 { font-size: 1.35rem; margin: 2rem 0 0.75rem; color: var(--accent-dark); }
+h3 { font-size: 1.05rem; margin: 0 0 0.35rem; }
+.lead { font-size: 1.1rem; color: var(--muted); max-width: 48rem; }
+
+/* ---------- Header / nav ---------- */
+.site-header {
+  background: var(--accent);
+  color: #fff;
+  position: sticky; top: 0; z-index: 10;
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; padding-top: 0.75rem; padding-bottom: 0.75rem;
+}
+.brand { color: #fff; text-decoration: none; display: flex; flex-direction: column; }
+.brand-name { font-weight: 700; font-size: 1.35rem; letter-spacing: 0.02em; }
+.brand-sub { font-size: 0.8rem; opacity: 0.85; }
+
+.site-nav { display: flex; gap: 0.25rem; }
+.site-nav a {
+  color: #fff; text-decoration: none; padding: 0.5rem 0.9rem;
+  border-radius: 6px; font-weight: 500;
+}
+.site-nav a:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.site-nav a.active { background: #fff; color: var(--accent); }
+
+.nav-toggle {
+  display: none; background: none; border: 1px solid rgba(255,255,255,0.5);
+  color: #fff; font-size: 1.3rem; padding: 0.25rem 0.6rem; border-radius: 6px; cursor: pointer;
+}
+
+/* ---------- Tabs ---------- */
+.tab-panel { display: none; padding: 2.5rem 0 3rem; }
+.tab-panel.active { display: block; }
+
+/* ---------- Home ---------- */
+.hero { padding: 1rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
+.hero h1 { font-size: 2.4rem; }
+.hero-actions { margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.btn {
+  display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+  padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: 600;
+}
+.btn:hover { background: var(--accent-dark); color: #fff; }
+.btn-outline { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+.btn-outline:hover { background: var(--bg-soft); color: var(--accent-dark); }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.card {
+  background: var(--bg-soft); border: 1px solid var(--border);
+  border-radius: 10px; padding: 1.25rem;
+}
+.card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+.news-list { list-style: none; padding: 0; }
+.news-list li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+.news-list .date { color: var(--muted); font-size: 0.85rem; margin-right: 0.75rem; }
+
+/* ---------- Research ---------- */
+.research-theme { margin-bottom: 1.5rem; }
+.research-theme h2 { margin-top: 1.5rem; }
+
+/* ---------- Members ---------- */
+.people-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.person img {
+  width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+  border-radius: 10px; background: var(--bg-soft); margin-bottom: 0.6rem;
+}
+.person .role { color: var(--accent); font-weight: 600; font-size: 0.9rem; margin: 0 0 0.4rem; }
+.person p { margin: 0; font-size: 0.95rem; }
+
+/* ---------- Publications ---------- */
+.pub-list { padding-left: 1.25rem; }
+.pub-list li { margin-bottom: 0.9rem; }
+.pub-authors { display: block; }
+.pub-title { display: block; font-weight: 600; }
+.pub-journal { display: block; color: var(--muted); }
+.pub-link { font-size: 0.9rem; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--border); background: var(--bg-soft);
+  color: var(--muted); font-size: 0.85rem; padding: 1.25rem 0; margin-top: 2rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .grid-3, .grid-2, .people-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 1.8rem; }
+  .nav-toggle { display: block; }
+  .site-nav { display: none; width: 100%; flex-direction: column; margin-top: 0.75rem; }
+  .site-nav.open { display: flex; }
+}
